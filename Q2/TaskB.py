@@ -18,7 +18,7 @@ n_fft = 2048
 hop_length = 512
 n_mels = 128
 spectrograms = {}
-plt.figure(figsize=(10, 8))
+
 for i, (genre, file) in enumerate(audio_files.items()):
     if not os.path.exists(file):
         print(f"File {file} not found. Skipping {genre}.")
@@ -31,13 +31,12 @@ for i, (genre, file) in enumerate(audio_files.items()):
 
     spectrograms[genre] = torch.tensor(mel_spec_db)
 
-    plt.subplot(2, 2, i + 1)
+    # plt.subplot(2, 2, i + 1)
+    plt.figure(figsize=(8, 6))
     librosa.display.specshow(mel_spec_db, sr=sr, hop_length=hop_length, x_axis='time', y_axis='mel')
     plt.colorbar(format='%+2.0f dB')
-    plt.title(f"{genre} Spectrogram")
-
-plt.tight_layout()
-plt.show()
+    plt.title(f"{genre}- {file}")
+    plt.show()
 
 
 # Analysis
