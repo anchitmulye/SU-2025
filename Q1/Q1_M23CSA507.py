@@ -1,11 +1,17 @@
+"""
+File: Q1_M23CSA507.py
+Author: Anchit Mulye
+Description: This code runs whisper model locally on the dataset.
+"""
+
 import subprocess
 import time
 import jiwer
 import pandas as pd
 
-dataset_path = "LJSpeech-1.1/wavs/"
-metadata_file = "LJSpeech-1.1/metadata.csv"
-metadata = pd.read_csv(metadata_file, delimiter="|", header=None, names=["file_name", "text", "text2"])
+dataset_path = "/Users/anchitmulye/Documents/IITJ/CodingIIT/SU/SU-2025/Q1/LJSpeech-1.1/wavs/"
+metadata_file = "/Users/anchitmulye/Documents/IITJ/CodingIIT/SU/SU-2025/Q1/LJSpeech-1.1/metadata.csv"
+metadata = pd.read_csv(metadata_file, delimiter="|", header=None, names=["file_name", "text", "normalized_text"])
 
 wer_list = list()
 start_time = time.time()
