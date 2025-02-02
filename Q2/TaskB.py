@@ -20,7 +20,6 @@ n_mels = 128
 spectrograms = {}
 plt.figure(figsize=(10, 8))
 for i, (genre, file) in enumerate(audio_files.items()):
-    print(file)
     if not os.path.exists(file):
         print(f"File {file} not found. Skipping {genre}.")
         continue
@@ -41,7 +40,7 @@ plt.tight_layout()
 plt.show()
 
 
-# Analysis 
+# Analysis
 def analyze_spectrograms(spectrograms):
     for genre, spec in spectrograms.items():
         print(f"\n{genre} Analysis:")
